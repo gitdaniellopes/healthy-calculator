@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.ImcActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/TextViewForm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/imc_desc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/imc_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="@string/weight"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <EditText
+            android:id="@+id/imc_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="@string/height"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/imc_weight"
+            app:layout_constraintStart_toStartOf="@+id/imc_weight"
+            app:layout_constraintTop_toBottomOf="@+id/imc_weight" />
+
+        <Button
+            android:id="@+id/imc_send"
+            style="@style/ButtonForm"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/bg_button_accent"
+            android:text="@string/calc"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imc_height"
+            app:layout_constraintStart_toStartOf="@+id/imc_height"
+            app:layout_constraintTop_toBottomOf="@+id/imc_height" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
