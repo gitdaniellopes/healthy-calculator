@@ -1,7 +1,6 @@
 package br.com.daniel.healthycalculator.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,32 +14,39 @@ import java.util.List;
 
 import br.com.daniel.healthycalculator.R;
 import br.com.daniel.healthycalculator.model.MainItem;
-import br.com.daniel.healthycalculator.ui.ImcActivity;
-import br.com.daniel.healthycalculator.ui.TmbActivity;
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.TesteAdapterViewHolder>
-        implements OnItemClickListener{
+public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder> {
 
     private final List<MainItem> mainItens;
     private final Context context;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onClick(int position);
+    }
 
     public MainAdapter(List<MainItem> mainItens, Context context) {
         this.mainItens = mainItens;
         this.context = context;
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
     @NonNull
     @Override
-    public TesteAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View viewCriada = LayoutInflater.from(context)
                 .inflate(R.layout.item_main, parent, false);
-        return new TesteAdapterViewHolder(viewCriada);
+        return new MainViewHolder(viewCriada);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TesteAdapterViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         MainItem mainItem = mainItens.get(position);
-        holder.bind(mainItem, this);
+        holder.bind(mainItem, listener);
     }
 
     @Override
@@ -48,29 +54,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.TesteAdapterVi
         return mainItens.size();
     }
 
-    @Override
-    public void onClick(int position) {
-        final MainItem mainItem = this.mainItens.get(position);
-        switch (mainItem.getId()) {
-            case 1: {
-                final Intent intent = new Intent(context, ImcActivity.class);
-                context.startActivity(intent);
-            }
-            break;
-            case 2: {
-                final Intent intent = new Intent(context, TmbActivity.class);
-                context.startActivity(intent);
-            }
-            break;
-        }
-    }
 
-    static class TesteAdapterViewHolder extends RecyclerView.ViewHolder {
+    static class MainViewHolder extends RecyclerView.ViewHolder {
 
         private final ImageView imgViewMain;
         private final TextView textViewMain;
 
-        TesteAdapterViewHolder(@NonNull View itemView) {
+        MainViewHolder(@NonNull View itemView) {
             super(itemView);
             imgViewMain = itemView.findViewById(R.id.item_main_img);
             textViewMain = itemView.findViewById(R.id.item_main_text);
@@ -91,8 +81,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.TesteAdapterVi
 
         }
     }
+
 }
 
-interface OnItemClickListener {
-    void onClick(int position);
-}
+
