@@ -24,5 +24,7 @@
     <!--uma forma de tornar dinamico dependendo do resultado do imc-->
     <string name="imc_response">Imc: %1$.2f</string>
     <string name="fields_message">Todos os campos devem ser maiores que 0</string>
+    <string name="save">Salvar</string>
+    <string name="calc_saved">Registro salvo com sucesso</string>
 
 </resources>

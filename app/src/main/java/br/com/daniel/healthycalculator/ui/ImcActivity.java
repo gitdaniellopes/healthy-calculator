@@ -1,6 +1,7 @@
 package br.com.daniel.healthycalculator.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -12,18 +13,21 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.daniel.healthycalculator.R;
+import br.com.daniel.healthycalculator.dataBase.SqlHelper;
 
 public class ImcActivity extends AppCompatActivity {
 
     private EditText editWeight;
     private EditText editHeight;
     private Button send;
+    private SqlHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imc);
 
+        helper = SqlHelper.getInstance(this);
         bind();
         configureButton();
     }
@@ -52,12 +56,34 @@ public class ImcActivity extends AppCompatActivity {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.imc_response, imc))
                 .setMessage(respId)
-                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                .setNegativeButton(android.R.string.ok, (dialog, which) -> {
                     dialog.dismiss();
+                })
+                .setPositiveButton(R.string.save, (dialog, which) -> {
+                    save(imc);
                 })
                 .create();
         alertDialog.show();
 
+    }
+
+    private void save(double imc) {
+        final long calcId = helper.addItem(SqlHelper.TYPE_IMC, imc);
+        verifyCalcId(calcId);
+    }
+
+    private void verifyCalcId(long calcId) {
+        if (calcId > 0) {
+            Toast.makeText(this, R.string.calc_saved,
+                    Toast.LENGTH_LONG).show();
+            showListCalcActivity();
+        }
+    }
+
+    private void showListCalcActivity() {
+        Intent intent = new Intent(this, ListCalcActivity.class);
+        intent.putExtra("type", SqlHelper.TYPE_IMC);
+        startActivity(intent);
     }
 
     private void hiddenButton() {
