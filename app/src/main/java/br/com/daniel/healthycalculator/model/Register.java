@@ -1,9 +1,18 @@
 package br.com.daniel.healthycalculator.model;
 
 public class Register {
+    private long id;
     private String type;
     private double response;
     private String createdDate;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getType() {
         return type;

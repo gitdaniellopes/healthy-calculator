@@ -48,6 +48,39 @@ public class SqlHelper extends SQLiteOpenHelper {
 
     }
 
+    public void deleteItem(Register register) {
+        final SQLiteDatabase db = getReadableDatabase();
+        db.beginTransaction();
+        try {
+            db.delete("calc",
+                    "id = ?",
+                    new String[]{String.valueOf(register.getId())});
+
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            Log.e("Teste", e.getMessage(), e);
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public void deleteItem(int id) {
+        final SQLiteDatabase db = getReadableDatabase();
+        db.beginTransaction();
+        try {
+            db.delete("calc",
+                    "id = ?",
+                    new String[]{Integer.toString(id)});
+
+            db.setTransactionSuccessful();
+
+        } catch (Exception e) {
+            Log.e("Teste", e.getMessage(), e);
+        } finally {
+            db.endTransaction();
+        }
+    }
+
     public List<Register> getRegisters(String type) {
         List<Register> registers = new ArrayList<>();
 

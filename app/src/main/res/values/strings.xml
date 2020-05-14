@@ -26,5 +26,7 @@
     <string name="fields_message">Todos os campos devem ser maiores que 0</string>
     <string name="save">Salvar</string>
     <string name="calc_saved">Registro salvo com sucesso</string>
+    <string name="delete">Deletar</string>
+    <string name="search">Buscar</string>
 
 </resources>

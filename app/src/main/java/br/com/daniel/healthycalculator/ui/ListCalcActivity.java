@@ -1,8 +1,12 @@
 package br.com.daniel.healthycalculator.ui;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,13 +22,15 @@ public class ListCalcActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Register> registers = new ArrayList<>();
+    private ListCalcAdapter calcAdapter;
+    private SqlHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_calc);
 
-        SqlHelper db = SqlHelper.getInstance(this);
+        db = SqlHelper.getInstance(this);
 
         bind();
         getRegisterSend(db);
@@ -32,9 +38,45 @@ public class ListCalcActivity extends AppCompatActivity {
     }
 
     private void configureAdapterAndList() {
-        ListCalcAdapter adapter = new ListCalcAdapter(registers, this);
-        recyclerView.setAdapter(adapter);
+        calcAdapter = new ListCalcAdapter(registers, this);
+        recyclerView.setAdapter(calcAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
+        eventsClickRecycleView();
+    }
+
+    private void eventsClickRecycleView() {
+        calcAdapter.setOnClickListener(new ListCalcAdapter.OnClickListener() {
+            @Override
+            public void onItemClick(View view, Register register, int pos) {
+            }
+
+            @Override
+            public void onItemLongClick(View view, Register register, int pos) {
+                final Register register1 = registers.get(pos);
+                createDialog(register1, pos);
+            }
+        });
+    }
+
+    private void createDialog(Register register1, int pos) {
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle("Deletar")
+                .setMessage("Deseja deletar produto?")
+                .setNegativeButton(android.R.string.ok, (dialog, which) -> {
+                    dialog.dismiss();
+                })
+                .setPositiveButton(R.string.delete, (dialog, which) -> {
+                    delete(register1);
+                    calcAdapter.remove(pos);
+                })
+                .create();
+        alertDialog.show();
+
+    }
+
+    private void delete(Register register1) {
+        db.deleteItem(register1);
     }
 
     private void getRegisterSend(SqlHelper db) {

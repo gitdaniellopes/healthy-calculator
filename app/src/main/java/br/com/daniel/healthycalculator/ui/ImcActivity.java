@@ -3,11 +3,14 @@ package br.com.daniel.healthycalculator.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,6 +68,28 @@ public class ImcActivity extends AppCompatActivity {
                 .create();
         alertDialog.show();
 
+    }
+
+    private void openListCalcActivity() {
+        Intent intent = new Intent(ImcActivity.this, ListCalcActivity.class);
+        intent.putExtra("type", SqlHelper.TYPE_IMC);
+        ImcActivity.this.startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == R.id.menu_list) {
+            openListCalcActivity();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void save(double imc) {
