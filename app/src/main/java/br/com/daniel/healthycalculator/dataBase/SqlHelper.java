@@ -26,6 +26,7 @@ public class SqlHelper extends SQLiteOpenHelper {
     //Padrão singleton
     private static SqlHelper INSTANCE;
     public static String TYPE_IMC = "imc";
+    public static String TYPE_TMB = "tmb";
 
     public static synchronized SqlHelper getInstance(Context context) {
         if (INSTANCE == null) {
@@ -64,22 +65,6 @@ public class SqlHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void deleteItem(int id) {
-        final SQLiteDatabase db = getReadableDatabase();
-        db.beginTransaction();
-        try {
-            db.delete("calc",
-                    "id = ?",
-                    new String[]{Integer.toString(id)});
-
-            db.setTransactionSuccessful();
-
-        } catch (Exception e) {
-            Log.e("Teste", e.getMessage(), e);
-        } finally {
-            db.endTransaction();
-        }
-    }
 
     public List<Register> getRegisters(String type) {
         List<Register> registers = new ArrayList<>();
@@ -92,6 +77,7 @@ public class SqlHelper extends SQLiteOpenHelper {
             if (cursor.moveToFirst()) {
                 do {
                     final Register register = new Register();
+                    register.setId(cursor.getInt(cursor.getColumnIndex("id")));
                     register.setType(cursor.getString(cursor.getColumnIndex("type_calc")));
                     register.setResponse(cursor.getDouble(cursor.getColumnIndex("res")));
                     register.setCreatedDate(cursor.getString(cursor.getColumnIndex("created_date")));
