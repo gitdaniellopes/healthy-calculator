@@ -61,9 +61,9 @@ public class ListCalcActivity extends AppCompatActivity {
 
     private void createDialog(Register register1, int pos) {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setTitle("Deletar")
-                .setMessage("Deseja deletar produto?")
-                .setNegativeButton(android.R.string.ok, (dialog, which) -> {
+                .setTitle(R.string.delete)
+                .setMessage("Deseja deletar: " + register1.getType() + " ?")
+                .setNegativeButton(R.string.cancel, (dialog, which) -> {
                     dialog.dismiss();
                 })
                 .setPositiveButton(R.string.delete, (dialog, which) -> {

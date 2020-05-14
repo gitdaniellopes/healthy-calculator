@@ -27,9 +27,10 @@
     <string name="fields_message">Todos os campos devem ser maiores que 0</string>
     <string name="save">Salvar</string>
     <string name="calc_saved">Registro salvo com sucesso</string>
-    <string name="delete">Deletar</string>
     <string name="search">Buscar</string>
     <string name="tmb_desc">TBM é o calculo para descobrir a quantidade calorica que o corpo necessita com base no seu estilo de vida.</string>
     <string name="age">Idade</string>
+    <string name="delete">Deletar</string>
+    <string name="cancel">cancelar</string>
 
 </resources>
