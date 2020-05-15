@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -41,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createListItems(ArrayList<MainItem> mainItems) {
-        mainItems.add(new MainItem(1, R.drawable.baseline_announcement_black_24dp,
-                R.string.imc, 0xFFFF00FF));
-        mainItems.add(new MainItem(2, R.drawable.baseline_announcement_black_24dp,
-                R.string.tmb, 0xFFFFFF00));
+        mainItems.add(new MainItem(1, R.drawable.ic_ferramentas_e_utensilios,
+                R.string.imc, 0xFFA3E6A5));
+        mainItems.add(new MainItem(2, R.drawable.ic_ferramentas_e_utensilios,
+                R.string.tmb, 0xFF7BC37E));
     }
 
     public void adapterOnClick() {

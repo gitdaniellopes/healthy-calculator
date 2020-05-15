@@ -27,6 +27,12 @@ public class ListCalcAdapter extends RecyclerView.Adapter<ListCalcAdapter.ListCa
         this.onClickListener = onClickListener;
     }
 
+    public interface OnClickListener {
+        void onItemClick(View view, Register register, int pos);
+
+        void onItemLongClick(View view, Register register, int pos);
+    }
+
     public ListCalcAdapter(List<Register> registers, Context context) {
         this.registers = registers;
         this.context = context;
@@ -88,12 +94,6 @@ public class ListCalcAdapter extends RecyclerView.Adapter<ListCalcAdapter.ListCa
     public void remove(int posicao) {
         registers.remove(posicao);
         notifyItemRemoved(posicao);
-    }
-
-    public interface OnClickListener {
-        void onItemClick(View view, Register register, int pos);
-
-        void onItemLongClick(View view, Register register, int pos);
     }
 
 }
