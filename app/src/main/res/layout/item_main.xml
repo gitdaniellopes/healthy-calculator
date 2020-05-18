@@ -22,7 +22,7 @@
             android:layout_height="@dimen/main_size"
             android:layout_marginBottom="20dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_ferramentas_e_utensilios"
+            android:src="@drawable/ic_cuidados_de_saude_e_medicos"
             tools:ignore="ContentDescription" />
 
         <TextView

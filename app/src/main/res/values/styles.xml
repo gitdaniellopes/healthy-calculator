@@ -8,6 +8,41 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="imcTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/IMC</item>
+        <item name="colorPrimaryDark">@color/IMC</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TbmTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FcmTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/FCM</item>
+        <item name="colorPrimaryDark">@color/FCM</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
 
     <style name="TextViewForm">
         <item name="android:layout_marginStart">32dp</item>
@@ -22,6 +57,8 @@
         <item name="android:layout_marginStart" tools:targetApi="jelly_bean_mr1">30dp</item>
         <item name="android:layout_marginEnd" tools:targetApi="jelly_bean_mr1">30dp</item>
         <item name="android:layout_marginBottom">40dp</item>
+        <item name="android:background">@drawable/bg_edit_text_tbm</item>
+        <item name="android:padding">10dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
@@ -34,13 +71,21 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
+    <style name="ButtonFormFCM">
+        <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">20dp</item>
+        <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">20dp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:background">@drawable/bg_button_accent_fcm</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="ButtonFormTmb">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:paddingStart" tools:targetApi="jelly_bean_mr1">20dp</item>
         <item name="android:paddingEnd" tools:targetApi="jelly_bean_mr1">20dp</item>
         <item name="android:layout_marginBottom">40dp</item>
-        <item name="android:background">@drawable/bg_button_accent</item>
+        <item name="android:background">@drawable/bg_button_accent_tbm</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 

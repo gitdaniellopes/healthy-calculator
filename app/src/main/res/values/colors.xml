@@ -3,4 +3,12 @@
     <color name="colorPrimary">#288F2C</color>
     <color name="colorPrimaryDark">#288F2C</color>
     <color name="colorAccent">#288F2C</color>
+
+
+    <color name="colorIMC">#A3E6A5</color>
+    <color name="colorTMB">#7BC37E</color>
+    <color name="colorFCM">#FFF4C9D8</color>
+    <color name="FCM">#E91E63</color>
+    <color name="IMC">#1235C3</color>
+    <color name="ImcCOLOR">#53AAEF</color>
 </resources>

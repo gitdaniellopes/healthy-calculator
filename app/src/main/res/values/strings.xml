@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">healthyCalculator</string>
+    <string name="app_name">Calculadora Saudável</string>
     <string name="imc">IMC</string>
     <string name="tmb">TMB</string>
     <string name="imc_desc">IMC é a sigla para índice de Massa Corporal que serve para avaliar o peso
@@ -19,11 +19,16 @@
     <string name="imc_severely_high_wight">Severamente obeso</string>
     <string name="imc_extreme_wight">Extremamemte obeso</string>
 
+    <!--Paremetros para FCM-->
+    <string name="fcm_message">Você não deve praticar atividades físicas ou se colocar em situações
+        que elevem a sua frequência cardíaca acima desse valor</string>
+
     <!--AlertDialog-->
     <!--%1$.2f: aceito numeros de duas casas flutuantes-->
     <!--uma forma de tornar dinamico dependendo do resultado do imc-->
     <string name="imc_response">Imc: %1$.2f</string>
-    <string name="tmb_response">Imc: %1$.2f</string>
+    <string name="tmb_response">Tmb: %1$.2f</string>
+    <string name="fcm_response">Fcm: %1$.2f bpm</string>
     <string name="fields_message">Todos os campos devem ser maiores que 0</string>
     <string name="save">Salvar</string>
     <string name="calc_saved">Registro salvo com sucesso</string>
@@ -32,5 +37,10 @@
     <string name="age">Idade</string>
     <string name="delete">Deletar</string>
     <string name="cancel">cancelar</string>
+    <string name="FCM" />
+    <string name="fcm">FCM</string>
+    <string name="fcm_desc">A frequência cardíaca máxima consiste no número máximo de batimentos cardíacos no espaço de 1 minuto durante o esforço.
+        Na caminhada rápida, encontra-se na zona de desempenho, com uma frequência cardíaca
+        situada entre 60% e 75% da sua frequência cardíaca máxima (FCM). Para determinar esta frequência, deve estar atento ao seu corpo.</string>
 
 </resources>

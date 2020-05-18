@@ -25,8 +25,10 @@ public class SqlHelper extends SQLiteOpenHelper {
 
     //Padrão singleton
     private static SqlHelper INSTANCE;
+
     public static String TYPE_IMC = "imc";
     public static String TYPE_TMB = "tmb";
+    public static String TYPE_FCM = "fcm";
 
     public static synchronized SqlHelper getInstance(Context context) {
         if (INSTANCE == null) {
